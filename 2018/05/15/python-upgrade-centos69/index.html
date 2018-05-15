@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="python, centos," />
+  <meta name="keywords" content="python,centos," />
 
 
 
@@ -80,16 +80,16 @@
 
 
 <meta name="description" content="亲测，按照下面的步骤执行应该是没有问题的。 1234567891011121314yum update -yyum install -y centos-release-sclyum install -y python27scl enable python27 bash# 卸载旧版本的 pipyum erase -y python-pipcurl https://bootstrap.pypa.io/">
-<meta name="keywords" content="python, centos">
+<meta name="keywords" content="python,centos">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 CentOS 6.9 将 Python 从 2.6.6 升级到 2.7.13">
+<meta property="og:title" content="在 CentOS 6.9 上将 Python 从 2.6.6 升级到 2.7.13">
 <meta property="og:url" content="https://changyong.github.io/2018/05/15/python-upgrade-centos69/index.html">
 <meta property="og:site_name" content="Yong Chang&#39;s Blog">
 <meta property="og:description" content="亲测，按照下面的步骤执行应该是没有问题的。 1234567891011121314yum update -yyum install -y centos-release-sclyum install -y python27scl enable python27 bash# 卸载旧版本的 pipyum erase -y python-pipcurl https://bootstrap.pypa.io/">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-15T10:09:13.000Z">
+<meta property="og:updated_time" content="2018-05-15T10:47:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在 CentOS 6.9 将 Python 从 2.6.6 升级到 2.7.13">
+<meta name="twitter:title" content="在 CentOS 6.9 上将 Python 从 2.6.6 升级到 2.7.13">
 <meta name="twitter:description" content="亲测，按照下面的步骤执行应该是没有问题的。 1234567891011121314yum update -yyum install -y centos-release-sclyum install -y python27scl enable python27 bash# 卸载旧版本的 pipyum erase -y python-pipcurl https://bootstrap.pypa.io/">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>在 CentOS 6.9 将 Python 从 2.6.6 升级到 2.7.13 | Yong Chang's Blog</title>
+  <title>在 CentOS 6.9 上将 Python 从 2.6.6 升级到 2.7.13 | Yong Chang's Blog</title>
   
 
 
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">在 CentOS 6.9 将 Python 从 2.6.6 升级到 2.7.13</h1>
+          <h1 class="post-title" itemprop="name headline">在 CentOS 6.9 上将 Python 从 2.6.6 升级到 2.7.13</h1>
         
 
         <div class="post-meta">
@@ -302,7 +302,7 @@
       
         <p>亲测，按照下面的步骤执行应该是没有问题的。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">yum install -y centos-release-scl</span><br><span class="line">yum install -y python27</span><br><span class="line">scl <span class="built_in">enable</span> python27 bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载旧版本的 pip</span></span><br><span class="line">yum erase -y python-pip</span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py | python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让用户注销后重新登录用到的依然是 python2.7</span></span><br><span class="line">cat &gt; /etc/profile.d/enable_python27.sh&lt;&lt;EOF</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">source</span> scl_source <span class="built_in">enable</span> python27</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<p>如果想让 crond 中运行的 python 脚本运行在 python 2.7 上, 可以在执行脚本前加上 <code>source scl_source enable python27</code><br>例如:</p>
+<p>如果想让 crond 设置的 python 脚本运行在 python 2.7 上, 可以在执行脚本的命令行前加上 <code>source scl_source enable python27</code><br>例如:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/5 * * * * source scl_source enable python27;/opt/scrub_workflow/worker_hb.py 2&gt;/opt/scrub_workflow/logs/error.log</span><br></pre></td></tr></table></figure>
 <p>至于以前安装的 python module, 可以在升级之前先通过下面的命令得到 module 的列表：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
@@ -326,7 +326,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/python-centos/" rel="tag"># python, centos</a>
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/centos/" rel="tag"># centos</a>
           
         </div>
       
@@ -427,10 +429,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
-                  <span class="site-state-item-count">1</span>
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
