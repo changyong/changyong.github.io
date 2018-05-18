@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="亲测，按照下面的步骤执行应该是没有问题的。">
+<meta name="description" content="在多台服务器试过，按下面的步骤执行进行升级应该是没有问题的。 1234567891011121314yum update -yyum install -y centos-release-sclyum install -y python27scl enable python27 bash# 卸载旧版本的 pipyum erase -y python-pipcurl https://bootstrap">
 <meta name="keywords" content="python,centos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 CentOS 6.9 上将 Python 从 2.6.6 升级到 2.7.13">
 <meta property="og:url" content="https://changyong.github.io/2018/05/15/python-upgrade-centos69/index.html">
 <meta property="og:site_name" content="Yong Chang&#39;s Blog">
-<meta property="og:description" content="亲测，按照下面的步骤执行应该是没有问题的。">
+<meta property="og:description" content="在多台服务器试过，按下面的步骤执行进行升级应该是没有问题的。 1234567891011121314yum update -yyum install -y centos-release-sclyum install -y python27scl enable python27 bash# 卸载旧版本的 pipyum erase -y python-pipcurl https://bootstrap">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-16T01:51:28.000Z">
+<meta property="og:updated_time" content="2018-05-18T01:42:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 CentOS 6.9 上将 Python 从 2.6.6 升级到 2.7.13">
-<meta name="twitter:description" content="亲测，按照下面的步骤执行应该是没有问题的。">
+<meta name="twitter:description" content="在多台服务器试过，按下面的步骤执行进行升级应该是没有问题的。 1234567891011121314yum update -yyum install -y centos-release-sclyum install -y python27scl enable python27 bash# 卸载旧版本的 pipyum erase -y python-pipcurl https://bootstrap">
 
 
 
@@ -310,15 +310,16 @@
       
 
       
-        <p>亲测，按照下面的步骤执行应该是没有问题的。<br><a id="more"></a></p>
+        <p>在多台服务器试过，按下面的步骤执行进行升级应该是没有问题的。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">yum install -y centos-release-scl</span><br><span class="line">yum install -y python27</span><br><span class="line">scl <span class="built_in">enable</span> python27 bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载旧版本的 pip</span></span><br><span class="line">yum erase -y python-pip</span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py | python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让用户注销后重新登录用到的依然是 python2.7</span></span><br><span class="line">cat &gt; /etc/profile.d/enable_python27.sh&lt;&lt;EOF</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">source</span> scl_source <span class="built_in">enable</span> python27</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-<p>如果想让 crond 设置的 python 脚本运行在 python 2.7 上, 可以在执行脚本的命令行前加上 <code>source scl_source enable python27</code><br>例如:</p>
+<a id="more"></a>
+<p>如果想让 crond 中设置的 python 脚本运行在 python 2.7 上, 可以在执行脚本的命令前加上 <code>source scl_source enable python27</code>，例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/5 * * * * source scl_source enable python27;/opt/scrub_workflow/worker_hb.py 2&gt;/opt/scrub_workflow/logs/error.log</span><br></pre></td></tr></table></figure>
 <p>至于以前安装的 python module, 可以在升级之前先通过下面的命令得到 module 的列表：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
 <p>升级之后再在 python2.7 中安装最新的版本:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat requirements.txt | grep -v <span class="string">'^\-e'</span> | cut -d = -f 1  | xargs -n1 pip install -U</span><br></pre></td></tr></table></figure>
-<p>最后补充一句，最好还是用 <a href="https://github.com/pyenv/pyenv" target="_blank" rel="noopener">PyEnv</a></p>
+<p>最后补充一句，一般情况下还是用<a href="https://github.com/pyenv/pyenv" target="_blank" rel="noopener">PyEnv</a>更好些。不过这几台服务器是我的一个 Python 项目专用的，所以就直接这么升级了。</p>
 
       
     </div>

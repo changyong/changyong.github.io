@@ -309,7 +309,8 @@
 
       
         
-          <p>亲测，按照下面的步骤执行应该是没有问题的。<br>
+          <p>在多台服务器试过，按下面的步骤执行进行升级应该是没有问题的。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">yum install -y centos-release-scl</span><br><span class="line">yum install -y python27</span><br><span class="line">scl <span class="built_in">enable</span> python27 bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载旧版本的 pip</span></span><br><span class="line">yum erase -y python-pip</span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py | python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让用户注销后重新登录用到的依然是 python2.7</span></span><br><span class="line">cat &gt; /etc/profile.d/enable_python27.sh&lt;&lt;EOF</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">source</span> scl_source <span class="built_in">enable</span> python27</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/05/15/python-upgrade-centos69/#more" rel="contents">
@@ -443,7 +444,7 @@
 
       
         
-          <p>We were talking about harvest joy.<br>
+          <p>公司几个兄弟在美国出差，一群人晚上酒店里喝酒嗨皮。其中一个在微信群里发了张图，随手修了一下图调戏一下。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/28/happiness/#more" rel="contents">
