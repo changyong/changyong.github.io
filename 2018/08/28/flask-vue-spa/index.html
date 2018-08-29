@@ -82,15 +82,15 @@
 <meta name="description" content="# 起因近期一直在帮公司做和产品发布的流程和自动化相关的改进工作，主要是写了一些 Python + bash + Jenkinsfile 来实现 Jenkins Pipeline，效果还算不错，做产品发布比以前省心了不少。于是想着可以再做一个 Web 页面，用来展示和产品发布相关的信息，方便日常的维护工作。刚好看到网上这样一篇文章Full-stack single page application">
 <meta name="keywords" content="Python,Vue.js,Flask,SPA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用 Flask+Vue.Js 实现一个 SPA 展示产品发布相关信息">
+<meta property="og:title" content="用 Flask + Vue.Js 实现 SPA 显示产品发布信息">
 <meta property="og:url" content="https://changyong.github.io/2018/08/28/flask-vue-spa/index.html">
 <meta property="og:site_name" content="Yong Chang&#39;s Blog">
 <meta property="og:description" content="# 起因近期一直在帮公司做和产品发布的流程和自动化相关的改进工作，主要是写了一些 Python + bash + Jenkinsfile 来实现 Jenkins Pipeline，效果还算不错，做产品发布比以前省心了不少。于是想着可以再做一个 Web 页面，用来展示和产品发布相关的信息，方便日常的维护工作。刚好看到网上这样一篇文章Full-stack single page application">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pe5m51u6y.bkt.clouddn.com/flask-vue-spa-1.jpg">
-<meta property="og:updated_time" content="2018-08-29T03:31:16.000Z">
+<meta property="og:updated_time" content="2018-08-29T05:18:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用 Flask+Vue.Js 实现一个 SPA 展示产品发布相关信息">
+<meta name="twitter:title" content="用 Flask + Vue.Js 实现 SPA 显示产品发布信息">
 <meta name="twitter:description" content="# 起因近期一直在帮公司做和产品发布的流程和自动化相关的改进工作，主要是写了一些 Python + bash + Jenkinsfile 来实现 Jenkins Pipeline，效果还算不错，做产品发布比以前省心了不少。于是想着可以再做一个 Web 页面，用来展示和产品发布相关的信息，方便日常的维护工作。刚好看到网上这样一篇文章Full-stack single page application">
 <meta name="twitter:image" content="http://pe5m51u6y.bkt.clouddn.com/flask-vue-spa-1.jpg">
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>用 Flask+Vue.Js 实现一个 SPA 展示产品发布相关信息 | Yong Chang's Blog</title>
+  <title>用 Flask + Vue.Js 实现 SPA 显示产品发布信息 | Yong Chang's Blog</title>
   
 
 
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用 Flask+Vue.Js 实现一个 SPA 展示产品发布相关信息</h1>
+          <h1 class="post-title" itemprop="name headline">用 Flask + Vue.Js 实现 SPA 显示产品发布信息</h1>
         
 
         <div class="post-meta">
@@ -321,7 +321,7 @@
 <p>backend 目录里是一个 Python 应用负责收集产品与发布相关的信息。<br>www 目录里主要是一个前端程序 Python 程序提供REST API 和一个index.html静态页面，Vue.js 相关代码都在 index.html 里。</p>
 <p>用图说话那基本上就是这样的:<br><img src="http://pe5m51u6y.bkt.clouddn.com/flask-vue-spa-1.jpg" alt="flask-vue-spa-1"></p>
 <h2 id="技术点和总结"><a href="#技术点和总结" class="headerlink" title="技术点和总结"></a>技术点和总结</h2><ol>
-<li><p>后台应用的 daemon 实现，直接用了开源项目 <a href="https://github.com/serverdensity/python-daemon" target="_blank" rel="noopener">python-daemon</a> daemon.py 的源代码。pip 里其实可以直接安装 python-daemon 库, 不过这个是另一个<a href="https://pypi.org/project/python-daemon/" target="_blank" rel="noopener">项目</a>实现的，以后想用的话可以先看一下这个<a href="https://dpbl.wordpress.com/2017/02/12/a-tutorial-on-python-daemon/" target="_blank" rel="noopener">文档</a></p>
+<li><p>后台应用的 daemon 实现，直接用了开源项目 <a href="https://github.com/serverdensity/python-daemon" target="_blank" rel="noopener">python-daemon</a> daemon.py 的源代码。pip 里其实可以直接安装 python-daemon 库, 不过这个是另一个<a href="https://pypi.org/project/python-daemon/" target="_blank" rel="noopener">项目</a>实现的，以后想用的话可以先看一下这个<a href="https://dpbl.wordpress.com/2017/02/12/a-tutorial-on-python-daemon/" target="_blank" rel="noopener">文档</a>。</p>
 </li>
 <li><p>后台collector里用到的<a href="http://www.fabfile.org/" target="_blank" rel="noopener">fabric</a>也是 Python 里非常有用的库，建立在<a href="https://www.pyinvoke.org/" target="_blank" rel="noopener">Invoke (subprocess command execution and command-line features)</a> 和 <a href="http://paramiko.org/" target="_blank" rel="noopener">Paramiko (SSH protocol implementation)</a>之上，用起来感觉很方便，对开发 CMDB 的项目来说很有帮助。</p>
 </li>
