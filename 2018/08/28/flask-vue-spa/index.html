@@ -89,7 +89,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://pe5m51u6y.bkt.clouddn.com/flask-vue-spa-1.jpg">
 <meta property="og:image" content="http://pe5m51u6y.bkt.clouddn.com/flask-vue-spa-2.jpg">
-<meta property="og:updated_time" content="2018-08-29T03:21:46.000Z">
+<meta property="og:updated_time" content="2018-08-29T03:29:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用 Flask+Vue.Js 实现一个 SPA 展示产品发布相关信息">
 <meta name="twitter:description" content="# 起因近期一直在帮公司做和产品发布的流程和自动化相关的改进工作，主要是写了一些 Python + bash + Jenkinsfile 来实现 Jenkins Pipeline，效果还算不错，做产品发布比以前省心了不少。于是想着可以再做一个 Web 页面，用来展示和产品发布相关的信息，方便日常的维护工作。刚好看到网上这样一篇文章Full-stack single page application">
@@ -326,7 +326,7 @@
 </li>
 <li><p>后台collector里用到的<a href="http://www.fabfile.org/" target="_blank" rel="noopener">fabric</a>也是 Python 里非常有用的库，建立在<a href="https://www.pyinvoke.org/" target="_blank" rel="noopener">Invoke (subprocess command execution and command-line features)</a> 和 <a href="http://paramiko.org/" target="_blank" rel="noopener">Paramiko (SSH protocol implementation)</a>之上，用起来感觉很方便，对开发 CMDB 的项目来说很有帮助。</p>
 </li>
-<li><p>前端的实现是 Python Flask + Vue.js, 由于 Vue.js 模板和 Flask Jinji2 在展示的时候有些预定义的转义字符的冲突，所以在Flask app对象上需要做下面的处理：</p>
+<li><p>前端的实现是 Python Flask + Vue.js, 由于 Vue.js 模板和 Flask Jinji2 在展示的时候有些预定义的分隔字符的冲突，所以在Flask app对象上需要做下面的处理：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomFlask</span><span class="params">(Flask)</span>:</span></span><br><span class="line">    jinja_options = Flask.jinja_options.copy()</span><br><span class="line">    jinja_options.update(dict(</span><br><span class="line">        block_start_string=<span class="string">'&#123;%'</span>,</span><br><span class="line">        block_end_string=<span class="string">'%&#125;'</span>,</span><br><span class="line">        variable_start_string=<span class="string">'(?'</span>,</span><br><span class="line">        variable_end_string=<span class="string">'?)'</span>,</span><br><span class="line">        comment_start_string=<span class="string">'&#123;#'</span>,</span><br><span class="line">        comment_end_string=<span class="string">'#&#125;'</span>,</span><br><span class="line">    ))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = CustomFlask(__name__)</span><br></pre></td></tr></table></figure>
 </li>
