@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,Vue.js,Flask,SPA," />
 
 
 
@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yong Chang&#39;s Blog">
-<meta property="og:url" content="https://changyong.github.io/index.html">
+<meta name="description" content="# 起因近期一直在帮助公司做关于产品发布的流程和自动化的一些提升工作，大部分的工作是写一些 Python + bash + Jenkinsfile 实现一些 Jenkins Pipeline，效果还算不错，做产品发布比以前省心了不少。于是想着可以花些时间做一个 Web 页面，用以展示和产品发布相关的信息。刚好看到这样一篇文档Full-stack single page application wi">
+<meta name="keywords" content="Python,Vue.js,Flask,SPA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Flask+Vue.Js 实现的一个SPA显示产品发布相关信息">
+<meta property="og:url" content="https://changyong.github.io/2018/08/28/flask-vue-spa/index.html">
 <meta property="og:site_name" content="Yong Chang&#39;s Blog">
+<meta property="og:description" content="# 起因近期一直在帮助公司做关于产品发布的流程和自动化的一些提升工作，大部分的工作是写一些 Python + bash + Jenkinsfile 实现一些 Jenkins Pipeline，效果还算不错，做产品发布比以前省心了不少。于是想着可以花些时间做一个 Web 页面，用以展示和产品发布相关的信息。刚好看到这样一篇文档Full-stack single page application wi">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://pe5m51u6y.bkt.clouddn.com/flask-vue-spa-1.jpg">
+<meta property="og:updated_time" content="2018-08-29T03:01:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Yong Chang&#39;s Blog">
+<meta name="twitter:title" content="用 Flask+Vue.Js 实现的一个SPA显示产品发布相关信息">
+<meta name="twitter:description" content="# 起因近期一直在帮助公司做关于产品发布的流程和自动化的一些提升工作，大部分的工作是写一些 Python + bash + Jenkinsfile 实现一些 Jenkins Pipeline，效果还算不错，做产品发布比以前省心了不少。于是想着可以花些时间做一个 Web 页面，用以展示和产品发布相关的信息。刚好看到这样一篇文档Full-stack single page application wi">
+<meta name="twitter:image" content="http://pe5m51u6y.bkt.clouddn.com/flask-vue-spa-1.jpg">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://changyong.github.io/"/>
+  <link rel="canonical" href="https://changyong.github.io/2018/08/28/flask-vue-spa/"/>
 
 
 
 
 
-  <title>Yong Chang's Blog</title>
+  <title>用 Flask+Vue.Js 实现的一个SPA显示产品发布相关信息 | Yong Chang's Blog</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/28/flask-vue-spa/" itemprop="url">用 Flask+Vue.Js 实现的一个SPA显示产品发布相关信息</a></h1>
+          <h1 class="post-title" itemprop="name headline">用 Flask+Vue.Js 实现的一个SPA显示产品发布相关信息</h1>
         
 
         <div class="post-meta">
@@ -308,9 +312,7 @@
       
 
       
-        
-          
-            <p>#</p>
+        <p>#</p>
 <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>近期一直在帮助公司做关于产品发布的流程和自动化的一些提升工作，大部分的工作是写一些 Python + bash + Jenkinsfile 实现一些 <a href="https://jenkins.io/doc/book/pipeline/" target="_blank" rel="noopener">Jenkins Pipeline</a>，效果还算不错，做产品发布比以前省心了不少。于是想着可以花些时间做一个 Web 页面，用以展示和产品发布相关的信息。刚好看到这样一篇文档<a href="https://codeburst.io/full-stack-single-page-application-with-vue-js-and-flask-b1e036315532" target="_blank" rel="noopener">Full-stack single page application with Vue.js and Flask</a>, 于是打算用类似的架构来实现，顺便了解一下前端的Vue.js。</p>
 <h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><p>SPA - Single Page Application</p>
 <h2 id="程序结构"><a href="#程序结构" class="headerlink" title="程序结构"></a>程序结构</h2><p>程序的目录结构是这样的:</p>
@@ -339,8 +341,6 @@
 </li>
 </ol>
 
-          
-        
       
     </div>
     
@@ -355,283 +355,42 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://changyong.github.io/2018/06/14/happiness/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yong Chang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yong Chang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/14/happiness/" itemprop="url">Harvest Joy</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-14T10:23:20+08:00">
-                2018-06-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Python/" rel="tag"># Python</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/06/14/happiness/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/06/14/happiness/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/Vue-js/" rel="tag"># Vue.js</a>
           
-
+            <a href="/tags/Flask/" rel="tag"># Flask</a>
           
+            <a href="/tags/SPA/" rel="tag"># SPA</a>
           
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>公司几个兄弟去美国出差，晚上在酒店里喝酒嗨皮。其中一个在微信群里发了张照片，于是我随手修了一下图。 :-)</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/14/happiness/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/14/happiness/" rel="next" title="Harvest Joy">
+                <i class="fa fa-chevron-left"></i> Harvest Joy
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://changyong.github.io/2018/05/15/python-upgrade-centos69/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Yong Chang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yong Chang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/15/python-upgrade-centos69/" itemprop="url">在 CentOS 6.9 上将 Python 从 2.6.6 升级到 2.7.13</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-15T17:54:14+08:00">
-                2018-05-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/05/15/python-upgrade-centos69/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/05/15/python-upgrade-centos69/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>在多台服务器试过，按下面的步骤执行进行升级应该是没有问题的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">yum install -y centos-release-scl</span><br><span class="line">yum install -y python27</span><br><span class="line">scl <span class="built_in">enable</span> python27 bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载旧版本的 pip</span></span><br><span class="line">yum erase -y python-pip</span><br><span class="line">curl https://bootstrap.pypa.io/get-pip.py | python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让用户注销后重新登录用到的依然是 python2.7</span></span><br><span class="line">cat &gt; /etc/profile.d/enable_python27.sh&lt;&lt;EOF</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">source</span> scl_source <span class="built_in">enable</span> python27</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/15/python-upgrade-centos69/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -641,10 +400,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -652,6 +412,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -672,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -724,6 +500,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#起因"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语"><span class="nav-number">2.</span> <span class="nav-text">术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序结构"><span class="nav-number">3.</span> <span class="nav-text">程序结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术点和总结"><span class="nav-number">4.</span> <span class="nav-text">技术点和总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -864,6 +656,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
